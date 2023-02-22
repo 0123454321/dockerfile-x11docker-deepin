@@ -1,10 +1,13 @@
-name: Docker Image CI
+name: Deepin-Docker
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+env:
+  APP_NAME: deepin
+  DOCKERHUB_REPO: vscwjm/deepin
 
 jobs:
 
@@ -14,5 +17,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: deepin-docker
+      run: docker build . --file Dockerfile --tag deepin-docker:$(date +%s)
